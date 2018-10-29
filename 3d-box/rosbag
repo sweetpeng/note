@@ -1,0 +1,29 @@
+1.录制节点
+    rosbag record <节点名>
+    rosbag record -a //录制所有节点
+    rosbag record -o <数据集名> <节点名>//数据集名为<数据集名_当前时间>
+2.播放数据集
+    rosbag play <数据集>
+    rosbag play -r 2//以某一频率发布消息
+    rosbag play -s 2//从某一时间节点开始发布消息
+3.rosbag .active
+    rosbag reindex <数据集.active>
+    【注】 [Errno 13] Permission denied: '2018-10-29-15-54-24.bag.active'
+           删除：rm -rf <数据集+orig.active>;
+           sudo chmod 777 <数据集>；
+           重新运行reindex;
+    rosbag fix <数据集.active> <存储的数据集名.bag>
+4.查看信息
+    rosbag info <数据集.bag>
+5.检查
+    rosbag check <数据集名.bag>//确定一个.bag是否可以在当前系统中播放，或者是否可以迁移;
+6.修复
+    rosbag fix <数据集名.bag>//修复.bag文件中的消息，以便它可以在当前系统中播放；
+7.过滤
+    rosbag filter <数据集名.bag>//使用python表达式转换.bag文件；
+8.压缩
+    rosbag compress <数据集名.bag>//压缩一个或多个.bag文件;
+9.解压缩
+    rosbag decompress <数据集名.bag>//解压缩一个或多个.bag文件;
+10.重建
+    rosbag reindex <数据集名.bag>//重建一个或多个破损的.bag文件;
